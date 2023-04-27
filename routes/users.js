@@ -73,7 +73,7 @@ router.post('/login',async(req,res)=>{
 
 router.get('/', validate,roleAdminGaurd, async(req,res)=>{
   try {
-    let users = await userModel.find()
+    let users = await userModel.find({},{password:0})
     res.status(200).send({users,message:"users details"})
     
   } catch (error) {

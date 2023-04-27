@@ -7,13 +7,16 @@ var logger = require('morgan');
 require('dotenv').config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var dashboardRouter = require('./routes/dashboard')
+var dashboardRouter = require('./routes/dashboard');
+var cors=require('cors');
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
